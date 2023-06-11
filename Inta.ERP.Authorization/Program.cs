@@ -126,6 +126,7 @@ builder.Services.AddOpenIddict()
                 {
                     options.UseLocalServer();
                     options.UseAspNetCore(); //  enable OpenIddict to handle the authentication and authorization-related requests and responses
+                    options.EnableAuthorizationEntryValidation();
                 });
 
 
