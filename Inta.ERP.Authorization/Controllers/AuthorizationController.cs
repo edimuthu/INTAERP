@@ -22,21 +22,23 @@ namespace Inta.ERP.Authorization.Controllers
         private readonly IOpenIddictApplicationManager _applicationManager;
         private readonly IOpenIddictAuthorizationManager _authorizationManager;
         private readonly IOpenIddictScopeManager _scopeManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly ILogger<AuthorizationController> _logger;
 
         public AuthorizationController(
         IOpenIddictApplicationManager applicationManager,
         IOpenIddictAuthorizationManager authorizationManager,
         IOpenIddictScopeManager scopeManager,
-        SignInManager<ApplicationUser> signInManager,
-        UserManager<ApplicationUser> userManager)
+        SignInManager<User> signInManager,
+        UserManager<User> userManager, ILogger<AuthorizationController> logger)
         {
             _applicationManager = applicationManager;
             _authorizationManager = authorizationManager;
             _scopeManager = scopeManager;
             _signInManager = signInManager;
             _userManager = userManager;
+            _logger=logger;
         }
 
         [HttpGet("~/connect/authorize")]

@@ -9,8 +9,17 @@ using static OpenIddict.Abstractions.OpenIddictConstants;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
+using Inta.ERP.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllersWithViews();
 
@@ -24,7 +33,7 @@ builder.Services.AddDbContext<IntaErpIdentityDbContext>(options =>
 });
 
 // Register the Identity services.
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<User, Role>()
     .AddEntityFrameworkStores<IntaErpIdentityDbContext>()
     .AddDefaultTokenProviders()
     .AddDefaultUI();
@@ -128,7 +137,6 @@ builder.Services.AddOpenIddict()
                     options.UseAspNetCore(); //  enable OpenIddict to handle the authentication and authorization-related requests and responses
                     options.EnableAuthorizationEntryValidation();
                 });
-
 
 
 var app = builder.Build();
