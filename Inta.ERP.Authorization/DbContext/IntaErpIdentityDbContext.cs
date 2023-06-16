@@ -32,38 +32,38 @@ namespace Inta.ERP.Authorization.DbContext
             //builder.ApplyConfiguration(new ApplicationERPConfiguration());
             builder.Entity<User>(entity =>
             {
-                entity.ToTable(name: "User");
+                entity.ToTable(name: "Users");
                 //entity.HasKey(x => x.Id).HasName("UserId");
                 entity.Property(e => e.MaximumApproveAmount).HasPrecision(18, 2);
                 entity.Property(e => e.MaximumPettyCashApproveAmount).HasPrecision(18, 2);
             });
             builder.Entity<Role>(entity =>
             {
-                entity.ToTable(name: "Role");
+                entity.ToTable(name: "Roles");
             });
             builder.Entity<UserRole<string>>(entity =>
             {
-                entity.ToTable(name: "UserRole");
+                entity.ToTable(name: "UserRoles");
             });
 
             builder.Entity<IdentityUserToken<string>>(entity =>
             {
-                entity.ToTable(name: "UserToken");
+                entity.ToTable(name: "UserTokens");
             });
 
             builder.Entity<IdentityUserClaim<string>>(entity =>
             {
-                entity.ToTable(name: "UserClaim");
+                entity.ToTable(name: "UserClaims");
             });
 
             builder.Entity<IdentityRoleClaim<string>>(entity =>
             {
-                entity.ToTable(name: "RoleClaim");
+                entity.ToTable(name: "RoleClaims");
             });
 
             builder.Entity<IdentityUserLogin<string>>(entity =>
             {
-                entity.ToTable(name: "UserLogin");
+                entity.ToTable(name: "UserLogins");
             });
 
             builder.Entity<OpenIddictEntityFrameworkCoreApplication>(entity =>
@@ -82,94 +82,7 @@ namespace Inta.ERP.Authorization.DbContext
             {
                 entity.ToTable(name: "OIDTokens"); // rename the default table OpenIddictTokens
             });
-            //builder.Entity<OpenIddictApplicationDescriptor>(entity =>
-            //{
-            //    entity.ToTable(name: "ApplicationsERP");
-            //});
-            //builder.Ignore<IdentityUserToken<string>>();
-            //builder.Ignore<IdentityUserClaim<string>>();
-            //builder.Ignore<IdentityRoleClaim<string>>();
-            //builder.Ignore<IdentityUserLogin<string>>();
-            //builder.Entity<ApplicationUserRole>(userRole =>
-            //{
-            //    userRole.HasOne(ur => ur.Role)
-            //        .WithMany()
-            //        .HasForeignKey(ur => ur.RoleId)
-            //        .IsRequired();
-
-            //    userRole.HasOne(ur => ur.User)
-            //        .WithMany()
-            //        .HasForeignKey(ur => ur.UserId)
-            //        .IsRequired();
-
-            //    // Configure the key on the base type
-            //    userRole.OwnsOne(ur => ur.Role).HasKey(r => r.RoleId);
-            //});
-            //base.OnModelCreating(builder);
-            //builder.Entity<IdentityUserLogin<string>>(b =>
-            //{
-            //    b.ToTable("UserLogin");
-            //    b.HasNoKey();
-            //});
-            //builder.Entity<IdentityUserToken<string>>(b =>
-            //{
-            //    b.ToTable("UserToken");
-            //    b.HasNoKey();
-            //});
-            //builder.Entity<ApplicationUserRole>(b =>
-            //{
-            //    b.ToTable("UserRole");
-            //    b.HasNoKey();
-            //});
-            //builder.Entity<ApplicationUser>(b =>
-            //{
-            //    b.ToTable("Users");
-            //});
-
-            //builder.Entity<ApplicationRole>(b =>
-            //{
-            //    b.ToTable("Roles");
-            //});
-
-            ////builder.Entity<ApplicationRole>(entity =>
-            ////{
-            ////    entity.ToTable("Roles");
-            ////    entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
-            ////        .IsUnique()
-            ////        .HasFilter("([NormalizedName] IS NOT NULL)");
-
-            ////    entity.Property(e => e.Name).HasMaxLength(256);
-            ////    entity.Property(e => e.NormalizedName).HasMaxLength(256);
-
-            ////});
-
-            ////builder.Entity<ApplicationUser>(entity =>
-            ////{
-            ////    entity.ToTable("Users");
-            ////    entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
-
-            ////    entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
-            ////        .IsUnique()
-            ////        .HasFilter("([NormalizedUserName] IS NOT NULL)");
-
-            ////    entity.Property(e => e.Email).HasMaxLength(256);
-            ////    entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
-            ////    entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
-            ////    entity.Property(e => e.UserName).HasMaxLength(256);
-
-            ////    entity.HasMany(d => d.Roles).WithMany(p => p.Users)
-            ////        .UsingEntity<Dictionary<string, object>>(
-            ////            "UserRole",
-            ////            r => r.HasOne<ApplicationRole>().WithMany().HasForeignKey("RoleId"),
-            ////            l => l.HasOne<ApplicationUser>().WithMany().HasForeignKey("UserId"),
-            ////            j =>
-            ////            {
-            ////                j.HasKey("UserId", "RoleId");
-            ////                j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
-            ////            });
-            ////});
-
-            //builder.ApplyConfigurationsFromAssembly(typeof(IntaErpIdentityDbContext).Assembly);
+            
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Inta.ERP.Authorization.Migrations
 {
     [DbContext(typeof(IntaErpIdentityDbContext))]
-    [Migration("20230616045000_initial")]
+    [Migration("20230616053829_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -66,16 +66,16 @@ namespace Inta.ERP.Authorization.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("Role", "auth");
+                    b.ToTable("Roles", "auth");
 
                     b.HasData(
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "7138beac-f94b-4348-9846-9a247405ca97",
-                            CreatedDate = new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1302),
+                            ConcurrencyStamp = "6b9f8057-5082-4dbb-b754-08c75ae75dfb",
+                            CreatedDate = new DateTime(2023, 6, 16, 11, 8, 29, 99, DateTimeKind.Local).AddTicks(6868),
                             CreatedUser = 1,
-                            LastModifiedDate = new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1311),
+                            LastModifiedDate = new DateTime(2023, 6, 16, 11, 8, 29, 99, DateTimeKind.Local).AddTicks(6877),
                             LastModifiedUser = 1,
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE",
@@ -84,10 +84,10 @@ namespace Inta.ERP.Authorization.Migrations
                         new
                         {
                             Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
-                            ConcurrencyStamp = "06e1213a-76ee-451d-bd06-db1a8f8a440e",
-                            CreatedDate = new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1315),
+                            ConcurrencyStamp = "100d582d-d2d7-42cf-88dd-dedbed382f63",
+                            CreatedDate = new DateTime(2023, 6, 16, 11, 8, 29, 99, DateTimeKind.Local).AddTicks(6881),
                             CreatedUser = 1,
-                            LastModifiedDate = new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1316),
+                            LastModifiedDate = new DateTime(2023, 6, 16, 11, 8, 29, 99, DateTimeKind.Local).AddTicks(6882),
                             LastModifiedUser = 1,
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR",
@@ -98,6 +98,7 @@ namespace Inta.ERP.Authorization.Migrations
             modelBuilder.Entity("Inta.ERP.Authorization.Models.User", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -195,7 +196,7 @@ namespace Inta.ERP.Authorization.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("User", "auth");
+                    b.ToTable("Users", "auth");
 
                     b.HasData(
                         new
@@ -204,24 +205,24 @@ namespace Inta.ERP.Authorization.Migrations
                             AccessFailedCount = 0,
                             Active = true,
                             BranchId = 0,
-                            ConcurrencyStamp = "5252d78c-42a5-4d8d-808b-9ec6a69ce4ef",
-                            CreatedDate = new DateTime(2023, 6, 16, 10, 20, 0, 622, DateTimeKind.Local).AddTicks(1509),
+                            ConcurrencyStamp = "14d06df9-2322-4504-93d3-60a813194271",
+                            CreatedDate = new DateTime(2023, 6, 16, 11, 8, 29, 105, DateTimeKind.Local).AddTicks(6966),
                             CreatedUser = 1,
                             Email = "admin@localhost.com",
                             EmailConfirmed = true,
                             IsApiUser = true,
                             IsForcedLogoutPending = false,
                             IsLoggedIn = false,
-                            LastModifiedDate = new DateTime(2023, 6, 16, 10, 20, 0, 622, DateTimeKind.Local).AddTicks(1511),
+                            LastModifiedDate = new DateTime(2023, 6, 16, 11, 8, 29, 105, DateTimeKind.Local).AddTicks(6970),
                             LastModifiedUser = 1,
                             LockoutEnabled = false,
                             MaximumApproveAmount = 0m,
                             MaximumPettyCashApproveAmount = 0m,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED27mXhnbYUvNT+F8xPUzeq66ePERjgYeFAEZed9q5CqH6fYgsUFIiq8V+Q+654dyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKaDFbwKBDv39TJyHKH4h6tEjUU/IKowb5eAfUUTVUj8VTbNTCcqJ2GcRzogtfWSgw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7e491eb7-c79d-4ce8-8041-bd922ab48e97",
+                            SecurityStamp = "02d176f8-e272-4c4d-9d06-ca01d3d59db9",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
@@ -232,24 +233,24 @@ namespace Inta.ERP.Authorization.Migrations
                             AccessFailedCount = 0,
                             Active = true,
                             BranchId = 0,
-                            ConcurrencyStamp = "f89511f4-dda2-435e-85a3-63e781211682",
-                            CreatedDate = new DateTime(2023, 6, 16, 10, 20, 0, 628, DateTimeKind.Local).AddTicks(1168),
+                            ConcurrencyStamp = "45c7f206-e79f-455c-8108-a51d6c7198f8",
+                            CreatedDate = new DateTime(2023, 6, 16, 11, 8, 29, 111, DateTimeKind.Local).AddTicks(7649),
                             CreatedUser = 1,
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             IsApiUser = true,
                             IsForcedLogoutPending = false,
                             IsLoggedIn = false,
-                            LastModifiedDate = new DateTime(2023, 6, 16, 10, 20, 0, 628, DateTimeKind.Local).AddTicks(1171),
+                            LastModifiedDate = new DateTime(2023, 6, 16, 11, 8, 29, 111, DateTimeKind.Local).AddTicks(7654),
                             LastModifiedUser = 1,
                             LockoutEnabled = false,
                             MaximumApproveAmount = 0m,
                             MaximumPettyCashApproveAmount = 0m,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFTqDXxV7k/vboXSXtujkfXSJi+F4ldaA64BmQDQILzv5mkWgRL8O5glat8CAdV4Pg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENSclV7VKOmYgJZ+zMJNuuLjfRR9pNJceLqB04enVdCbnkCK4ndgPT51+3SxEUx+wA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a6b646f7-fcd7-4e06-aeb0-4e4500461337",
+                            SecurityStamp = "2f6d8d7e-ac62-4700-a4a7-4ed4e68c04f2",
                             Status = 1,
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
@@ -283,7 +284,7 @@ namespace Inta.ERP.Authorization.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRole", "auth");
+                    b.ToTable("UserRoles", "auth");
 
                     b.HasData(
                         new
@@ -330,7 +331,7 @@ namespace Inta.ERP.Authorization.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaim", "auth");
+                    b.ToTable("RoleClaims", "auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -355,7 +356,7 @@ namespace Inta.ERP.Authorization.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserClaim", "auth");
+                    b.ToTable("UserClaims", "auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -377,7 +378,7 @@ namespace Inta.ERP.Authorization.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLogin", "auth");
+                    b.ToTable("UserLogins", "auth");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -396,7 +397,7 @@ namespace Inta.ERP.Authorization.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("UserToken", "auth");
+                    b.ToTable("UserTokens", "auth");
                 });
 
             modelBuilder.Entity("OpenIddict.EntityFrameworkCore.Models.OpenIddictEntityFrameworkCoreApplication", b =>
@@ -457,9 +458,9 @@ namespace Inta.ERP.Authorization.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "278d0431-ad6c-41eb-a0ad-d416c7a691b2",
+                            Id = "4095f0cf-57f2-4e44-a4a9-2bd0adac077a",
                             ClientId = "Inta_ERP_Angular_Client",
-                            ConcurrencyToken = "430d10cb-7db5-4869-8240-15fb9da15592",
+                            ConcurrencyToken = "190a5618-92a5-4cb0-996d-e05742d58f4f",
                             ConsentType = "explicit",
                             DisplayName = "Inta ERP Angular Client PKCE",
                             DisplayNames = "{\"fr-FR\":\"Inta ERP Angular Client PKCE\"}",
@@ -557,8 +558,8 @@ namespace Inta.ERP.Authorization.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f6cf0665-2e61-4a5b-a764-52aaabc0e33b",
-                            ConcurrencyToken = "d927480f-274a-4bd9-8d12-4cc360760ed2",
+                            Id = "1849ea23-f24f-45ad-ae5f-6d3b4586e9df",
+                            ConcurrencyToken = "60648a2f-adab-4f31-a3b4-2801252a3dd7",
                             DisplayName = "dataEventRecords API access",
                             DisplayNames = "{\"fr-FR\":\"Accès à l'API de démo\"}",
                             Name = "dataEventRecords",
