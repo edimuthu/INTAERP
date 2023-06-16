@@ -306,7 +306,13 @@ namespace Inta.ERP.Authorization.Migrations
                 schema: "auth",
                 table: "OIDApplications",
                 columns: new[] { "Id", "ClientId", "ClientSecret", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Type" },
-                values: new object[] { "61ed2355-a1d6-45aa-aba1-338c2165209c", "Inta_ERP_Angular_Client", "d9348bb0-0cec-4259-b39e-34364387775f", "517b4734-97d3-470b-a560-cff382174a99", "explicit", "Inta ERP Angular Client PKCE", "{\"fr-FR\":\"Inta ERP Angular Client PKCE\"}", "[\"ept:authorization\", \"ept:logout\", \"ept:token\", \"ept:revocation\", \"gt:authorization_code\", \"gt:refresh_token\", \"rst:code\", \"scp:email\", \"scp:profile\", \"scp:roles\", \"scp:dataEventRecords\"]", "[\"https://localhost:4200\"]", null, "[\"https://localhost:4200\"]", "[\"ft:pkce\"]", "confidential" });
+                values: new object[] { "278d0431-ad6c-41eb-a0ad-d416c7a691b2", "Inta_ERP_Angular_Client", null, "430d10cb-7db5-4869-8240-15fb9da15592", "explicit", "Inta ERP Angular Client PKCE", "{\"fr-FR\":\"Inta ERP Angular Client PKCE\"}", "[\"ept:authorization\", \"ept:logout\", \"ept:token\", \"ept:revocation\", \"gt:authorization_code\", \"gt:refresh_token\", \"rst:code\", \"scp:email\", \"scp:profile\", \"scp:roles\", \"scp:dataEventRecords\"]", "[\"https://localhost:4200\"]", null, "[\"https://localhost:4200\"]", "[\"ft:pkce\"]", "public" });
+
+            migrationBuilder.InsertData(
+                schema: "auth",
+                table: "OIDScopes",
+                columns: new[] { "Id", "ConcurrencyToken", "Description", "Descriptions", "DisplayName", "DisplayNames", "Name", "Properties", "Resources" },
+                values: new object[] { "f6cf0665-2e61-4a5b-a764-52aaabc0e33b", "d927480f-274a-4bd9-8d12-4cc360760ed2", null, null, "dataEventRecords API access", "{\"fr-FR\":\"Accès à l'API de démo\"}", "dataEventRecords", null, "[\"rs_dataEventRecordsApi\"]" });
 
             migrationBuilder.InsertData(
                 schema: "auth",
@@ -314,8 +320,8 @@ namespace Inta.ERP.Authorization.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedDate", "CreatedUser", "LastModifiedDate", "LastModifiedUser", "Name", "NormalizedName", "Status" },
                 values: new object[,]
                 {
-                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "08ed8386-cadd-490c-9d2a-d0d44ba16673", new DateTime(2023, 6, 14, 21, 47, 52, 11, DateTimeKind.Local).AddTicks(6503), 1, new DateTime(2023, 6, 14, 21, 47, 52, 11, DateTimeKind.Local).AddTicks(6513), 1, "Employee", "EMPLOYEE", 0 },
-                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "e7e6b407-4aa0-407c-a29a-0a23a9a8f5bd", new DateTime(2023, 6, 14, 21, 47, 52, 11, DateTimeKind.Local).AddTicks(6517), 1, new DateTime(2023, 6, 14, 21, 47, 52, 11, DateTimeKind.Local).AddTicks(6517), 1, "Administrator", "ADMINISTRATOR", 0 }
+                    { "cac43a6e-f7bb-4448-baaf-1add431ccbbf", "7138beac-f94b-4348-9846-9a247405ca97", new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1302), 1, new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1311), 1, "Employee", "EMPLOYEE", 0 },
+                    { "cbc43a8e-f7bb-4445-baaf-1add431ffbbf", "06e1213a-76ee-451d-bd06-db1a8f8a440e", new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1315), 1, new DateTime(2023, 6, 16, 10, 20, 0, 616, DateTimeKind.Local).AddTicks(1316), 1, "Administrator", "ADMINISTRATOR", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -324,8 +330,8 @@ namespace Inta.ERP.Authorization.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Active", "BranchId", "ConcurrencyStamp", "CreatedDate", "CreatedUser", "Email", "EmailConfirmed", "IsApiUser", "IsForcedLogoutPending", "IsLoggedIn", "LastModifiedDate", "LastModifiedUser", "LockoutEnabled", "LockoutEnd", "MaximumApproveAmount", "MaximumPettyCashApproveAmount", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, true, 0, "3f5b85c7-84e4-4226-a281-20eeb7602a37", new DateTime(2023, 6, 14, 21, 47, 52, 17, DateTimeKind.Local).AddTicks(5843), 1, "admin@localhost.com", true, true, false, false, new DateTime(2023, 6, 14, 21, 47, 52, 17, DateTimeKind.Local).AddTicks(5846), 1, false, null, 0m, 0m, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAEHVFv3tYa8yf2eGwq+f4o5TUBd0r9r1JlfTYZ0laEra2E+3UcgLvGvWJlzbPMb4IhQ==", null, false, "6c7d72ad-a04b-443f-bbe3-38b3cbf19e71", 1, false, "admin@localhost.com" },
-                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, true, 0, "bcaf2a94-d856-47b3-920d-d2a1a9270b73", new DateTime(2023, 6, 14, 21, 47, 52, 23, DateTimeKind.Local).AddTicks(5229), 1, "user@localhost.com", true, true, false, false, new DateTime(2023, 6, 14, 21, 47, 52, 23, DateTimeKind.Local).AddTicks(5231), 1, false, null, 0m, 0m, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEAwjdi0EEm9md1AwmKI58x+3PLSxpTwFh5t7IG92ExV80ScDMBumCfoOqUS/XY2wNA==", null, false, "52837d03-2603-4cc6-a6b2-97ccf77b0a7b", 1, false, "user@localhost.com" }
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, true, 0, "5252d78c-42a5-4d8d-808b-9ec6a69ce4ef", new DateTime(2023, 6, 16, 10, 20, 0, 622, DateTimeKind.Local).AddTicks(1509), 1, "admin@localhost.com", true, true, false, false, new DateTime(2023, 6, 16, 10, 20, 0, 622, DateTimeKind.Local).AddTicks(1511), 1, false, null, 0m, 0m, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAED27mXhnbYUvNT+F8xPUzeq66ePERjgYeFAEZed9q5CqH6fYgsUFIiq8V+Q+654dyg==", null, false, "7e491eb7-c79d-4ce8-8041-bd922ab48e97", 1, false, "admin@localhost.com" },
+                    { "9e224968-33e4-4652-b7b7-8574d048cdb9", 0, true, 0, "f89511f4-dda2-435e-85a3-63e781211682", new DateTime(2023, 6, 16, 10, 20, 0, 628, DateTimeKind.Local).AddTicks(1168), 1, "user@localhost.com", true, true, false, false, new DateTime(2023, 6, 16, 10, 20, 0, 628, DateTimeKind.Local).AddTicks(1171), 1, false, null, 0m, 0m, "USER@LOCALHOST.COM", "USER@LOCALHOST.COM", "AQAAAAEAACcQAAAAEFTqDXxV7k/vboXSXtujkfXSJi+F4ldaA64BmQDQILzv5mkWgRL8O5glat8CAdV4Pg==", null, false, "a6b646f7-fcd7-4e06-aeb0-4e4500461337", 1, false, "user@localhost.com" }
                 });
 
             migrationBuilder.InsertData(
